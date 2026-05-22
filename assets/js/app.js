@@ -1,17 +1,35 @@
+// assets/js/app.js
+
 import {
+
     obtenerContactos,
     agregarContacto,
     actualizarContacto,
     eliminarContacto
+
 } from './api.js';
 
 import { mostrarContactos } from './ui.js';
 
+
+// ==========================
+// CARGAR CONTACTOS
+// ==========================
+
 const cargarContactos = async () => {
 
-    const contactos = await obtenerContactos();
+    try {
 
-    mostrarContactos(contactos);
+        const contactos = await obtenerContactos();
+
+        console.log(contactos);
+
+        mostrarContactos(contactos);
+
+    } catch(error) {
+
+        console.error(error);
+    }
 };
 
 cargarContactos();
@@ -30,7 +48,9 @@ formAgregar.addEventListener('submit', async (e) => {
     const contacto = {
 
         nombre: document.getElementById('nombre').value,
+
         telefono: document.getElementById('telefono').value,
+
         correo: document.getElementById('correo').value
     };
 
@@ -47,6 +67,7 @@ formAgregar.addEventListener('submit', async (e) => {
 const tabla = document.getElementById('tablaContactos');
 
 tabla.addEventListener('click', async (e) => {
+
 
     // ==========================
     // ELIMINAR
@@ -67,6 +88,7 @@ tabla.addEventListener('click', async (e) => {
             location.reload();
         }
     }
+
 
     // ==========================
     // EDITAR
