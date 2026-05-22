@@ -1,0 +1,20 @@
+body {
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+.table {
+    background: white;
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+footer {
+    margin-top: auto;
+}
